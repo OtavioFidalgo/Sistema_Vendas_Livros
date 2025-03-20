@@ -1,5 +1,5 @@
 <?php
-    namespace PHP\Modelo\DAO;
+    namespace PHP\Modelo;
 
     class Conexao{
         function conectar(){

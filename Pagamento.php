@@ -1,35 +1,39 @@
 <?php
-
     /*namespace PHP\Modelo;
-    require_once('Cliente.php');
     require_once('Livro.php');
-    require_once('Compra.php');
-    require_once('Reservas.php');
-    require_once('Login.php');
-
-    use PHP\Modelo\Cliente;
     use PHP\Modelo\Livro;
-    use PHP\Modelo\Compra;
-    use PHP\Modelo\Reserva;
-    use PHP\Modelo\Entrar;
+    
 
-    $cliente1 = new Cliente ('Cleiton', 'Rua dos Bobos - 00', '1198123456', '31/07/2006', 'cleiton02@email.com', '123');
+    class Compra{
+        private Livro $valorCompra;
+        private string $dataCompra;
+        private string $numCartao;
 
-    $livro1 = new Livro ('Coraline', 'Suspense', '341', 'R$ 130,00');
+        public function __construct(Livro $valorCompra, string $dataCompra, string $numCartao)
+        {
+            $this ->valorCompra = $valorCompra;
+            $this ->dataCompra = $dataCompra;
+            $this ->numCartao = $numCartao;
+        }
 
-    $compra1 = new Compra ($livro1, $cliente1, '11/03/2025', '5678.1236.5678');
+        public function __get(string $dados):mixed
+        {
+            return $this->dados;
+        }
 
-    $reserva1 = new Reserva ('Disponível');
+        public function __set(string $variavel, string $dados):void 
+        {
+            $this->variavel = $dados;
+        }
+ 
+        public function imprimir():string 
+        {
+            return "<br>Valor final da Compra: ".$this->valorCompra->imprimir(). 
+                    "<br>Data da Compra: ".$this->dataCompra.
+                   "<br>Número do Cartão: ".$this->numCartao;
+        }
 
-    $login1 = new Entrar ('cleiton02@email.com', '123');
-
-
-    echo "<br><br>".$cliente1->imprimir();
-    echo "<br><br>".$livro1->imprimir();
-    echo "<br><br>".$compra1->imprimir();
-    echo "<br><br>".$reserva1->imprimir();
-    echo "<br><br>".$login1->imprimir();*/
-
+    }*/
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>home</title>
+    <title>Pagamento</title>
     <link rel="stylesheet" type="text/css" href="css/Livro.css" />
 </head>
 <body>
@@ -57,21 +61,11 @@
             <div class="title-box">
                 <img src="imagens/livro_1.png" alt="Livro 1">
                 O Paciente<br>R$ 80,00
-                <button class="botao" >Comprar</button>
-            </div>
-            <div class="title-box">
-                <img src="imagens/livro_2.png" alt="Livro 2">
-                Harry Potter<br>R$ 90,00
-                <button class="botao" >Comprar</button>
-            </div>
-            <div class="title-box">
-                <img src="imagens/livro_3.png" alt="Livro 3">
-                Coraline<br>R$ 100,00
-                <button class="botao" >Comprar</button>
+                <button class="botao" >Finalizar Compra</button>
             </div>
         </div>
         <div class="news">
-            <h3>Últimas Notícias Literárias</h3>
+            <h3>Resumo</h3>
             <p>O mundo literário está em polvorosa com o lançamento 
                 do novo romance da premiada autora Maria Fidalgo. 
                 Seu mais recente livro, "Sombras do Amanhã", já está 
