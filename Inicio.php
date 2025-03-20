@@ -16,7 +16,7 @@
     <div class="banner"><img src="imagens/bannerL.png" alt="Livro 1"></div>
     <div class="content">
         <button class="botao" type="button"><a href="Login.php">  Entrar  </button>
-        <button class="botao" type="button"><a href="cadastro.php">  Cadastrar  </button>
+        <button class="botao" type="button"><a href="telaCadastro.php">  Cadastrar  </button>
         <button class="botao" type="button"><a href="Sobre.php">  Sobre  </button>
     </div>
 

@@ -1,5 +1,7 @@
 <?php
     namespace PHP\Modelo;
+    require_once('Conexao.php');
+    use PHP\Modelo\Conexao;
 
     class Entrar{
         protected string $email;
