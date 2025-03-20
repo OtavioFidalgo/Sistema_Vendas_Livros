@@ -1,5 +1,9 @@
 <?php
   namespace PHP\Modelo;
+  require_once('conexao.php');
+  use PHP\Modelo\Conexao;
+
+  $conexao = new Conexao();
 
   class Cadastro{
         private int $codigo;
@@ -11,26 +15,22 @@
         private string $endereco;
         private string $senha;
 
-      public function __construct(int $codigo, string $nome, string $sobrenome, string $email, string $dataNascimento, string $tele, string $endereco, string $senha)
+      public function cadastro(int $codigo, string $nome, string $sobrenome, string $email, string $dataNascimento, string $tele, string $endereco, string $senha)
       {
-        $this ->nome = $nome;
-        $this ->sobrenome = $sobrenome;
-        $this ->email = $email;
-        $this ->dataNascimento = $dataNascimento;
-        $this ->tele = $tele;
-        $this ->endereco = $endereco;
-        $this ->senha = $senha;
+        try{
+          $conn = $conexao->conectar();
+          $sql = "insert into cadastrar (nome, sobrenome, email, dataNascimento, tele, endereco, senha) value ('$nome', '$sobrenome', '$email', '$dataNascimento', '$tele', '$endereco', '$senha')";
+          $result = mysqli_query($conn, $sql);
+          mysqli_close($conn);
+          if($result){
+            return "<br>Cadastrado com Sucesso!";
+          }
+          return "<br>ERRO";
+        }catch(Exception $erro){
+          return "<br><br> Erro Fatal"
+        }
         
-      }
-
-      public function __get(string $dado):mixed 
-      {
-          return $this->dado;
-      }
-
-      public function __set(string $variavel, string $dado):void 
-      {
-          $this->variavel = $dado;
+        
       }
   }
 ?>
@@ -80,7 +80,11 @@
                 <input type="text" class="form-control" id="exampleInputPassword1">
               </div>
               
-              <button class="botaoL">  Cadastrar  </button>
+              <button class="botaoL">  Cadastrar  
+                <?php
+                  $cadastrar->cadastro($conexao, $nome, $sobrenome, $email, $dataNascimento, $tele, $endereco, $senha);
+                ?>
+              </button>
               <button class="botaoL"><a href="Inicio.php">  Voltar  </button>
             </form>
         </div>

@@ -7,11 +7,20 @@
         private string $categoria;
         private int $preco;
   
-        public function __construct(int $codigo, string $titulo, string $categoria, int $preco)
+        public function cadastroLivro(int $codigo, string $titulo, string $categoria, int $preco)
         {
-          $this ->titulo = $titulo;
-          $this ->categoria = $categoria;
-          $this ->preco = $senha;
+            try{
+                $conn = $conexao->conectar();
+                $sql = "insert into livros (titulo, categoria, preco) value ('$titulo', '$categoria', '$preco')";
+                $result = mysqli_query($conn, $sql);
+                mysqli_close($conn);
+                if($result){
+                  return "<br>Cadastrado com Sucesso!";
+                }
+                return "<br>ERRO";
+              }catch(Exception $erro){
+                return "<br><br> Erro Fatal"
+              }
           
         }
   
