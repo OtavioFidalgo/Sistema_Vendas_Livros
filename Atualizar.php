@@ -1,9 +1,9 @@
 <?php
-    namespace PHP\Modelo\DAO;
-    require_once('../DAO/Conexao.php');
-    require_once('../DAO/Consultar.php');
-    use PHP\Modelo\DAO\Conexao;
-    use PHP\Modelo\DAO\Consultar;
+    namespace PHP\Modelo;
+    require_once('conexao.php');
+    require_once('Consultar.php');
+    use PHP\Modelo\Conexao;
+    use PHP\Modelo\Consultar;
 
     class Atualizar{
         function atualizarCadastro(Conexao $conexao, string $campo, string $novoDado, string $codigo){

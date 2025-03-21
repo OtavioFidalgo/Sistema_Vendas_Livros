@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="">
                 <div id="emailHelp" class="form-text"></div>
               </div>
-              <button class="botaoL">  Cadastrar  
+              <button class="botaoL">  Consultar  
                 <?php
 
                   if(isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['email']) && isset($_POST['dataNascimento']) && isset($_POST['tele']) && isset($_POST['endereco']) && isset($_POST['senha'])){
@@ -44,12 +44,12 @@
                     }catch(Exception $erro){
                       echo "Algo deu errado ".$erro;
                     }
-                    $cadastrar->cadastro($conexao, $nome, $sobrenome, $email, $dataNascimento, $tele, $endereco, $senha);
+                    $consultar->consultarCadastro($conexao, $nome, $sobrenome, $email, $dataNascimento, $tele, $endereco, $senha);
 
                   }
                 ?>
               <a href="telaCadastro.php"></button>
-              <button class="botaoL"><a href="Inicio.php">  Voltar  </button>
+              <button class="botaoL"><a href="telaAdmin.php">  Voltar  </button>
             </form>
         </div>
     </div>

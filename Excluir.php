@@ -1,7 +1,7 @@
 <?php
-    namespace PHP\Modelo\DAO;
-    require_once('Conexao.php');
-    use PHP\Modelo\DAO\Conexao;
+    namespace PHP\Modelo;
+    require_once('conexao.php');
+    use PHP\Modelo\Conexao;
 
     class Excluir{
         function exculirCadastro(Conexao $conexao, string $codigo){
